@@ -21,8 +21,8 @@ const App = () => {
             <Route path="cast" element={<LazyCast />} />
             <Route path="reviews" element={<LazyReviews />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </React.Suspense>
   );

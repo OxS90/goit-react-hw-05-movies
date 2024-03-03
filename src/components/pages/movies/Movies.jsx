@@ -19,8 +19,8 @@ const Movies = () => {
       return;
     }
     async function fetchMovies() {
-      setLoading(true);
       try {
+        setLoading(true);
         const data = await createApiRequest(searchQuery, currentPage);
         setMoviesArray(data.results);
         setTotalPages(data.total_pages);
@@ -37,7 +37,7 @@ const Movies = () => {
     event.preventDefault();
     setSearchQuery(event.target[1].value);
     setCurrentPage(1);
-    document.querySelector('input').value = '';
+    event.target.reset();
   };
 
   const handlePageChange = page => {

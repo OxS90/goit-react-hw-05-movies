@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../TheMovieDatabaseAPI';
-import Loader from '../../Loader/Loader';
 import styles from './MovieDetails.module.css';
+import NotFound from '../NotFound';
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
@@ -27,7 +27,7 @@ const MovieDetails = () => {
   }, [movieId]);
 
   if (!movieDetails) {
-    return <Loader />;
+    return <NotFound />;
   }
   return (
     <div className={styles.movieDetailsContainer}>

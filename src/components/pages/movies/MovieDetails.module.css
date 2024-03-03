@@ -1,0 +1,24 @@
+.movieDetailsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.poster {
+  width: 200px;
+  height: 300px;
+  margin-right: 20px;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.additionalInfo {
+  margin-top: 20px;
+}
+
+.additionalInfo a {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}

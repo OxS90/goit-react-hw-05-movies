@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../../TheMovieDatabaseAPI';
 import Loader from '../../Loader/Loader';
-
+import styles from './MovieDetails.module.css';
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
@@ -30,25 +30,31 @@ const MovieDetails = () => {
     return <Loader />;
   }
   return (
-    <div>
+    <div className={styles.movieDetailsContainer}>
       <div>
-        <img src={movieDetails.poster_path} alt={movieDetails.title} />
-        <div>
-          <h1>
-            {movieDetails.title}
-            <br></br>({movieDetails.release_date.substring(0, 4)})
-          </h1>
-          <p>User score: {Math.round(movieDetails.vote_average * 10)}%</p>
-          <h2>Overview</h2>
-          <p>{movieDetails.overview}</p>
-          <h2>Genres</h2>
-          <p>{movieDetails.genres.map(genre => genre.name).join(' ')}</p>
-        </div>
+        <img
+          className={styles.poster}
+          src={movieDetails.poster_path}
+          alt={movieDetails.title}
+        />
       </div>
-      <h3>Aditional information</h3>
-      <div>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+      <div className={styles.details}>
+        <h1>
+          {movieDetails.title}
+          <br></br>({movieDetails.release_date.substring(0, 4)})
+        </h1>
+        <p>User score: {Math.round(movieDetails.vote_average * 10)}%</p>
+        <h2>Overview</h2>
+        <p>{movieDetails.overview}</p>
+        <h2>Genres</h2>
+        <p>{movieDetails.genres.map(genre => genre.name).join(' ')}</p>
+      </div>
+      <div className={styles.additionalInfo}>
+        <h3>Aditional information</h3>
+        <div>
+          <Link to="cast">Cast</Link>
+          <Link to="reviews">Reviews</Link>
+        </div>
       </div>
       <Outlet />
     </div>

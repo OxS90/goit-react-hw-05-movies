@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/822.89235bd1.chunk.css","mappings":"AAAA,uBACE,kBACF,CAEA,8BACE,eACF,CAEA,+BAEE,UAAY,CADZ,cAEF","sources":["components/pages/movies/Reviews.module.css"],"sourcesContent":[".review {\n  margin-bottom: 20px;\n}\n\n.review_author {\n  font-weight: bold;\n}\n\n.review_content {\n  margin-top: 5px;\n  color: black;\n}\n"],"names":[],"sourceRoot":""}

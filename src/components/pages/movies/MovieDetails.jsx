@@ -9,23 +9,23 @@ const MovieDetails = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    async function fetchDetails() {
+      try {
+        const data = await fetchMovieDetails(movieId);
+        if (data.poster_path === null) {
+          data.poster_path = 'https://source.unsplash.com/500x750/?no-photo';
+        } else {
+          data.poster_path =
+            'https://www.themoviedb.org/t/p/w500' + data.poster_path;
+        }
+        setMovieDetails(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
     fetchDetails();
   }, [movieId]);
 
-  async function fetchDetails() {
-    try {
-      const data = await fetchMovieDetails(movieId);
-      if (data.poster_path === null) {
-        data.poster_path = 'https://source.unsplash.com/500x750/?no-photo';
-      } else {
-        data.poster_path =
-          'https://www.themoviedb.org/t/p/w500' + data.poster_path;
-      }
-      setMovieDetails(data);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
   if (!movieDetails) {
     return <Loader />;
   }

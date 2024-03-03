@@ -18,21 +18,20 @@ const Movies = () => {
       setMoviesArray([]);
       return;
     }
+    async function fetchMovies() {
+      setLoading(true);
+      try {
+        const data = await createApiRequest(searchQuery, currentPage);
+        setMoviesArray(data.results);
+        setTotalPages(data.total_pages);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    }
     fetchMovies();
   }, [searchQuery, currentPage]);
-
-  async function fetchMovies() {
-    setLoading(true);
-    try {
-      const data = await createApiRequest(searchQuery, currentPage);
-      setMoviesArray(data.results);
-      setTotalPages(data.total_pages);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }
 
   const handleSubmit = event => {
     event.preventDefault();

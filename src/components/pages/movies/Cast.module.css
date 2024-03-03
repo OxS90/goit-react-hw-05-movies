@@ -1,0 +1,25 @@
+.cast_item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.cast_image {
+  width: 100px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+.cast_details {
+  display: flex;
+  flex-direction: column;
+}
+
+.cast_name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cast_character {
+  font-style: italic;
+  color: #666;
+}

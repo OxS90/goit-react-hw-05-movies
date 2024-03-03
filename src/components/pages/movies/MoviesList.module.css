@@ -1,0 +1,13 @@
+.movie_item {
+  margin-bottom: 10px;
+}
+
+.movie_link {
+  text-decoration: none;
+  color: black;
+}
+
+.movie_link:hover {
+  text-decoration: underline;
+  color: orangered;
+}

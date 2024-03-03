@@ -1,0 +1,12 @@
+.review {
+  margin-bottom: 20px;
+}
+
+.review_author {
+  font-weight: bold;
+}
+
+.review_content {
+  margin-top: 5px;
+  color: black;
+}

@@ -12,7 +12,6 @@ const Movies = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [totalResults, setTotalResults] = useState(0);
 
   useEffect(() => {
     if (searchQuery.trim() === '') {
@@ -28,7 +27,6 @@ const Movies = () => {
       const data = await createApiRequest(searchQuery, currentPage);
       setMoviesArray(data.results);
       setTotalPages(data.total_pages);
-      setTotalResults(data.total_results);
     } catch (error) {
       setError(error.message);
     } finally {
